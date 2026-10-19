@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: pulseboard
-          image: DOCKERHUB_USERNAME/pulseboard:1.0.0
+          image: rayen9/pulseboard:1.0.0
           imagePullPolicy: Always
           ports:
             - containerPort: 3000

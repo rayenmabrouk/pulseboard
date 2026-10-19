@@ -56,10 +56,10 @@ Remplacez `DOCKERHUB_USERNAME` par votre identifiant Docker Hub.
 
 ```bash
 # Construire l'image
-docker build -t DOCKERHUB_USERNAME/pulseboard:1.0.0 .
+docker build -t rayen9/pulseboard:1.0.0 .
 
 # Lancer le conteneur
-docker run -d --name pulseboard -p 3000:3000 DOCKERHUB_USERNAME/pulseboard:1.0.0
+docker run -d --name pulseboard -p 3000:3000 rayen9/pulseboard:1.0.0
 
 # Vérifier
 docker ps
@@ -67,7 +67,7 @@ curl http://localhost:3000/health
 
 # Publier sur Docker Hub
 docker login
-docker push DOCKERHUB_USERNAME/pulseboard:1.0.0
+docker push rayen9/pulseboard:1.0.0
 ```
 
 ## Déploiement Kubernetes (k3s)
