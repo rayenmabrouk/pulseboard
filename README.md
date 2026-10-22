@@ -8,7 +8,7 @@ Il affiche la version de l'application, le hostname (le nom du Pod dans Kubernet
 `NODE_ENV`, l'uptime, l'heure du serveur, la version de Node.js et un compteur de
 requêtes propre à chaque instance.
 
-Chaîne de déploiement : **Node.js → GitLab → Docker → Docker Hub → Kubernetes (k3s) sur AWS EC2 (Ubuntu 24.04)**.
+Chaîne de déploiement : **Node.js → GitHub → Docker → Docker Hub → Kubernetes (k3s) sur AWS EC2 (Ubuntu 24.04)**.
 
 ## Routes
 
@@ -52,7 +52,7 @@ curl http://localhost:3000/api/info
 
 ## Docker
 
-Remplacez `DOCKERHUB_USERNAME` par votre identifiant Docker Hub.
+Image publiée sur Docker Hub : [`rayen9/pulseboard:1.0.0`](https://hub.docker.com/r/rayen9/pulseboard).
 
 ```bash
 # Construire l'image
@@ -72,7 +72,7 @@ docker push rayen9/pulseboard:1.0.0
 
 ## Déploiement Kubernetes (k3s)
 
-Avant de déployer, remplacez `DOCKERHUB_USERNAME` dans `k8s/deployment.yaml`.
+Le manifeste `k8s/deployment.yaml` utilise l'image `rayen9/pulseboard:1.0.0` publiée sur Docker Hub.
 
 ```bash
 kubectl apply -f k8s/
@@ -112,3 +112,7 @@ Règles entrantes à autoriser sur l'instance EC2 :
 | 22    | TCP       | SSH                                     |
 | 3000  | TCP       | Test direct de l'application / Docker   |
 | 30080 | TCP       | Service Kubernetes NodePort             |
+
+## Licence
+
+Distribué sous licence MIT. Voir [LICENSE](LICENSE).
